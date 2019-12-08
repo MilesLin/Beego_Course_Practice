@@ -5,6 +5,7 @@ import (
 	"lastchance/models"
 	"encoding/json"
 	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/validation"
 )
 
 // BankingController operations for Banking
@@ -25,8 +26,20 @@ func (c *BankingController) URLMapping() {
 func (c *BankingController) Transfer() {
 	var transfer models.Transfer
 	json.Unmarshal(c.Ctx.Input.RequestBody, &transfer)
+
+	valid := validation.Validation{}
+	isValid, _ := valid.Valid(&transfer)
 	fmt.Println(transfer)
-	c.Ctx.WriteString("success")
+	fmt.Println(valid.ErrorMap())
+
+	var message string
+
+	if isValid {
+		message = "success"
+	} else {
+		message = "failure"
+	}
+	c.Ctx.WriteString(message)
 }
 
 // // Post ...
