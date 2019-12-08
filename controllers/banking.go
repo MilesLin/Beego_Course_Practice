@@ -25,8 +25,8 @@ func (c *BankingController) ShowAccounts() {
 		models.Account{
 			ID:		2,
 			Name:	"Savings",
-			Number:	"3344",
-			Amount:	1000,
+			Number:	"33449",
+			Amount:	10000,
 		},
 	}
 	c.TplName = "banking.tpl"
@@ -46,14 +46,17 @@ func (c *BankingController) Transfer() {
 	fmt.Println(transfer)
 	fmt.Println(valid.ErrorMap())
 
-	var message string
+	response := models.TransferResponse{
+		Transfer: transfer,
+	}
 
 	if isValid {
-		message = "success"
+		response.Status = "success"
 	} else {
-		message = "failure"
+		response.Status = "failure"
 	}
-	c.Ctx.WriteString(message)
+	c.Data["json"] = response;
+	c.ServeJSON()
 }
 
 // // Post ...
