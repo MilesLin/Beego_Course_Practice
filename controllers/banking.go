@@ -1,6 +1,9 @@
 package controllers
 
 import (
+	"fmt"
+	"lastchance/models"
+	"encoding/json"
 	"github.com/astaxie/beego"
 )
 
@@ -16,6 +19,14 @@ func (c *BankingController) ShowAccounts() {
 
 func (c *BankingController) URLMapping() {
 	c.Mapping("ShowAccounts", c.ShowAccounts)
+}
+
+// @router /api/transfer [post]
+func (c *BankingController) Transfer() {
+	var transfer models.Transfer
+	json.Unmarshal(c.Ctx.Input.RequestBody, &transfer)
+	fmt.Println(transfer)
+	c.Ctx.WriteString("success")
 }
 
 // // Post ...
