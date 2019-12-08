@@ -5,13 +5,14 @@
 <div id="transfers" data-dojo-type="app/views/TransfersView"></div>
 <script>
   var accounts = [];
+
   {{range .accounts}}
-  accounts.push({
-    id: {{.ID}},
-    name: {{.Name}},
-    number: {{.Number}},
-    amount: {{.Amount}}
-  });
+    accounts.push({
+      id: {{.ID}},
+      name: {{.Name}},
+      number: {{.Number}},
+      amount: {{.Amount}}
+    });
   {{end}}
   require([
       "dojox/mobile/parser",
@@ -24,4 +25,4 @@
   });
 </script>
 {{end}}
-{{template "_layout.tpl"}}
+{{template "_layout.tpl" .}}

@@ -9,7 +9,7 @@ define(['dojo/_base/declare',
   'dojox/mobile/Button',
   'dojox/mobile/ToolBarButton',
   'dojox/mobile/EdgeToEdgeList'
-],
+  ],
 function(declare, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin,
   View, ListItem, template) {
 
@@ -19,14 +19,15 @@ function(declare, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin,
       navtoTransfer: function() {
         this.view.performTransition('transfers', 1, 'slide');
       },
-      postCreate: function(){
-        accounts.forEach(function (account){
+
+      postCreate: function() {
+        accounts.forEach(function (account) {
           var item = new ListItem();
-          item.containerNode.innerHTML = 
-          account.name + '...' + account.number + 
-          '<span class = "float-right">' + 
-          '$' + account.amount + 
-          '</span>'
+          item.containerNode.innerHTML =
+        	account.name + ' ... ' + account.number +
+        	'<span class="float-right">' +
+        	'$' + account.amount +
+        	'</span>';
           item.set('moveTo', 'accounts1');
           this.list.addChild(item);
         }.bind(this));

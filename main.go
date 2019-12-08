@@ -9,5 +9,5 @@ import (
 func main() {
 	beego.SetStaticPath("/public", "static")
 	beego.DelStaticPath("/static")
-	beego.Run()
+	beego.Run()	
 }

@@ -12,4 +12,4 @@
     });
 </script>
 {{end}}
-{{template "_layout.tpl"}}
+{{template "_layout.tpl" .}}
