@@ -1,6 +1,9 @@
 package controllers
 
 import (
+	"fmt"
+	"lastchance/models"
+
 	"github.com/astaxie/beego"
 )
 
@@ -10,6 +13,11 @@ type AccountController struct {
 }
 
 func (c * AccountController) Login(){
+	if c.Ctx.Input.IsPost() {
+		var loginForm models.LoginForm
+		c.ParseForm(&loginForm)
+		fmt.Println(loginForm)
+	}
 	c.TplName = "login.tpl"
 }
 
