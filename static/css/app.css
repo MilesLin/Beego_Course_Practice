@@ -112,7 +112,8 @@ label {
 
 .mblListItem {
   border: 0;
-  color: #eee; }
+  color: #eee;
+  background-color: transparent; }
 
 .mblDomButtonArrow > div {
   border-color: #eee; }

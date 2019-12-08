@@ -6,7 +6,7 @@
     </button>
   </header>
   <form action="" data-dojo-type="dijit/form/Form"
-  data-dojo-attach-point="form">
+    data-dojo-attach-point="form">
     <label for="from">From</label>
     <select data-dojo-type="dijit/form/DataList"
       data-dojo-props='id:"fromAccounts"'>
@@ -17,12 +17,12 @@
       data-dojo-props='list:"fromAccounts"'>
 
     <label for="to">To</label>
-    <select name="to" data-dojo-type="dijit/form/DataList"
+    <select data-dojo-type="dijit/form/DataList"
       data-dojo-props='id:"toAccounts"'>
       <option>Checking ... 1234</option>
       <option selected>Savings ... 5555</option>
     </select>
-    <input type="text" data-dojo-type="dojox/mobile/ComboBox"
+    <input type="text" name="to" data-dojo-type="dojox/mobile/ComboBox"
       data-dojo-props='list:"toAccounts"'>
 
     <label for="amount">Amount</label>

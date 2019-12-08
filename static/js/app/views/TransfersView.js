@@ -18,18 +18,18 @@ function(declare, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin,
       templateString: template,
 
       postCreate: function() {
-        this.form.on('submit', function(e){
+        this.form.on('submit', function(e) {
           var data = this.form.get('value');
-          data.amount = parseFloat(data.amount);
-          console.log(data);
+          data.amount=parseFloat(data.amount)
+
           request.post('/api/transfer', {
             headers: {
               'Content-Type': 'application/json'
             },
             data: JSON.stringify(data)
-          })
+          });
 
-          e.preventDefault();          
+          e.preventDefault();
         }.bind(this));
       }
     });

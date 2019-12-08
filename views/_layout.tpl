@@ -19,6 +19,6 @@
     <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"></script>
   </head>
   <body>
-    {{block "content" .}}{{end}}
+    {{block "content" . }}{{end}}
   </body>
 </html>
