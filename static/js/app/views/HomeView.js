@@ -10,10 +10,10 @@ function(declare, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin,
 
     var view = declare([_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin], {
       loginUrl: null,
-      createrUrl: null,
+      createUrl: null,
       templateString: template,
 
-      onLogin: function(){
+      onLogin: function() {
         window.location = this.loginUrl;
       }
     });
