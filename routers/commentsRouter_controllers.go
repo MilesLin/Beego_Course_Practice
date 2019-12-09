@@ -25,4 +25,13 @@ func init() {
             Filters: nil,
             Params: nil})
 
+    beego.GlobalControllerRouter["lastchance/controllers:BankingController"] = append(beego.GlobalControllerRouter["lastchance/controllers:BankingController"],
+        beego.ControllerComments{
+            Method: "ShowLifecycle",
+            Router: `/lifecycle`,
+            AllowHTTPMethods: []string{"get"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
+
 }

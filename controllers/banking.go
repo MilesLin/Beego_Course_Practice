@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/validation"
+	"github.com/astaxie/beego/context"
 )
 
 // BankingController operations for Banking
@@ -57,6 +58,34 @@ func (c *BankingController) Transfer() {
 	}
 	c.Data["json"] = response;
 	c.ServeJSON()
+}
+
+// @router /lifecycle [get]
+func (c *BankingController) ShowLifecycle() {
+	fmt.Println("Action Execution")
+}
+
+func (c *BankingController) Init(ctx *context.Context, controllerName,
+actionName string, app interface{}) {
+	fmt.Printf("Initialization: %s.$s\n", controllerName, actionName)
+	c.Controller.Init(ctx, controllerName, actionName, app)
+}
+
+func (c *BankingController) Prepare() {
+	fmt.Println("Prepare Controller")
+	c.Controller.Prepare()
+}
+
+func (c *BankingController) Render() error{
+	fmt.Println("Render result")
+	c.Ctx.WriteString("result")
+	
+	return nil
+}
+
+func (c *BankingController) Finish() {
+	fmt.Println("Finsih Controller")
+	c.Controller.Finish()
 }
 
 // // Post ...
